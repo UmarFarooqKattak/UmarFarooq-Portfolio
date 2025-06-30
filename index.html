@@ -4,21 +4,1316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - Umar Farooq</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: #fff;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  color: #00f2fe;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #00f2fe;
+  left: 0;
+  bottom: -5px;
+  transition: 0.4s;
+}
+
+nav ul li a:hover {
+  color: #00f2fe;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn input[type="text"] {
+  padding: 12px 18px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  border-radius: 30px 0 0 30px;
+  background: #fff;
+  color: #333;
+  width: 220px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.btn input[type="text"]::placeholder {
+  color: #999;
+}
+
+.btn input[type="text"]:focus {
+  background: #f9f9f9;
+}
+
+.btn button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.btn button:hover {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  transform: translateY(-2px);
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  nav ul {
+    display: none;
+  }
+
+  .btn input[type="text"] {
+    display: none;
+  }
+
+  .btn button::before {
+    content: "\f002";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo {
+    font-size: 22px;
+  }
+
+  .btn button {
+    padding: 10px 15px;
+  }
+}
+
+/* main section*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0f2027;
+  overflow-x: hidden;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.clip-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(135deg, #00f2fe, #4facfe, #0f2027);
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+  animation: moveBg 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes moveBg {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 90%);
+  }
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text h5 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #00f2fe;
+}
+
+.hero-text h1 {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 20px 0;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #ddd;
+}
+
+.hero-img {
+  max-width: 450px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.hero-img:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.btn-light {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 36px;
+  }
+  .hero-img {
+    max-width: 300px;
+  }
+}
+.changing-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #f5f5f5;
+  transition: opacity 0.5s ease;
+}
+
+/*second section*/
+.stats-section {
+  background: #0f2027;
+}
+
+.stats-section i {
+  color: #00f2fe;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stats-section h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.about-section {
+  background: #141e30;
+}
+
+.about-section img {
+  max-width: 100%;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.about-section img:hover {
+  transform: scale(1.03);
+}
+
+.about-section p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.about-section strong {
+  font-weight: 600;
+  color: #00f2fe;
+}
+
+.about-section h2 {
+  font-weight: 700;
+}
+
+.about-section .lead {
+  color: #ddd;
+  font-size: 17px;
+}
+
+.hobby-icon {
+  color: #00f2fe;
+  margin-right: 8px;
+  font-size: 20px;
+  animation: iconPulse 2s infinite ease-in-out;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.skill-card {
+  background: #141e30;
+  border-radius: 20px;
+  transition: 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+  border-color: #00f2fe;
+}
+
+.skill-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.skill-icon {
+  color: #00f2fe;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+  transform: rotate(360deg);
+}
+
+.circle-wrap {
+  margin: 20px auto;
+  width: 120px;
+  height: 120px;
+  background: #1e1e1e;
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#00f2fe calc(var(--percentage) * 1%), #232526 0%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inside-circle {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.skill-card p {
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.skill-card:hover p {
+  color: #fff;
+}
+#skill-khan{
+    position: relative;
+    left: 700px;
+}
+.services-section {
+  background: #141e30;
+}
+
+.services-section .section-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services-section p {
+  color: #ccc;
+}
+
+.service-card {
+  background: #1e1e1e;
+  border-radius: 20px;
+  transition: 0.3s ease;
+  text-align: center;
+  border: 2px solid transparent;
+  min-height: 250px;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+  border-color: #00f2fe;
+}
+
+.service-card h5 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.service-icon {
+  color: #00f2fe;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: rotate(360deg);
+}
+
+.service-card p {
+  color: #ccc;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.service-card:hover p {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .services-section .section-title {
+    font-size: 28px;
+  }
+}.projects-section {
+  background: #0f2027;
+}
+
+.projects-section .section-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-section p {
+  color: #ccc;
+}
+
+.flip-card {
+  background: transparent;
+  width: 100%;
+  height: 240px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front {
+  background: #1e1e1e;
+  border: 2px solid #00f2fe;
+}
+
+.flip-card-back {
+  background: #141e30;
+  transform: rotateY(180deg);
+  border: 2px solid #00f2fe;
+}
+
+.project-icon {
+  color: #00f2fe;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.flip-card:hover .project-icon {
+  transform: scale(1.2);
+}
+
+.flip-card h5 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.flip-card p {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.testimonials-section {
+  background: #0f2027;
+}
+
+.testimonials-section .section-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.testimonials-section p {
+  color: #ccc;
+}
+
+.slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  gap: 20px;
+  animation: slideLeft 25s linear infinite;
+}
+
+.testimonial-card {
+  background: #1e1e1e;
+  border-radius: 20px;
+  min-width: 300px;
+  padding: 20px;
+  flex-shrink: 0;
+  border: 2px solid #00f2fe;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+}
+
+.testimonial-card p {
+  color: #ccc;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.testimonial-card h5 {
+  color: #fff;
+  font-size: 17px;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.contact-section {
+  background: #0f2027;
+}
+
+.contact-section .section-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-section p {
+  color: #ccc;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  background: #1e1e1e;
+  border: 2px solid #00f2fe;
+  color: #fff;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none;
+  border-color: #4facfe;
+  background: #151d27;
+}
+
+.contact-form button {
+  background: #00f2fe;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  color: #000;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #4facfe;
+  color: #fff;
+}
+
+.contact-info-card {
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid #00f2fe;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.contact-info-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+.contact-info-card i {
+  color: #00f2fe;
+}
+
+.contact-info-card h5 {
+  color: #fff;
+  margin-bottom: 5px;
+}
+.footer-section {
+  background: #0f2027;
+}
+
+.footer-section h4, .footer-section h5 {
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.footer-section p {
+  color: #ccc;
+}
+
+.footer-links, .footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li, .footer-contact li {
+  margin-bottom: 10px;
+  color: #ccc;
+  font-size: 15px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #00f2fe;
+  padding-left: 5px;
+}
+
+.footer-contact i {
+  margin-right: 10px;
+  color: #00f2fe;
+}
+
+.footer-social a {
+  display: inline-block;
+  color: #00f2fe;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+  color: #4facfe;
+}
+
+.footer-section .text-secondary {
+  font-size: 14px;
+  color: #888 !important;
+}
+
+@media(max-width: 768px) {
+  .footer-section h4 {
+    font-size: 24px;
+  }
+}
 
     </style>
 </head>
 <body>
     <header>
+       <div class="logo">
         Umar Farooq
-
+       </div>
+       <nav>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Project</a></li>
+            <li><a href="">Skills</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="">About ME</a></li>
+        </ul>
+       </nav>
+      <div class="btn">
+        <input type="text" name="search" placeholder="Search Here...">
+        <button>Search</button>
+      </div>
     </header>
     <main>
 
-    </main>
-    <footer>
+<section class="hero-section">
+  <div class="clip-bg"></div>
 
-    </footer>
-    
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+     <div class="col-lg-6 text-white text-center text-lg-start hero-text">
+  <h5>WE DESIGN AND BUILD BRANDS</h5>
+  <h1>HI, I AM <span class="text-gradient">UMAR FAROOQ</span></h1>
+  <h3 class="changing-text mt-3"></h3>
+  <div class="mt-4 d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+    <a href="#contact" class="btn btn-primary rounded-pill px-4 py-2">Hire Me</a>
+    <button onclick="downloadCV()" class="btn btn-light rounded-pill px-4 py-2">Download CV</button>
+  </div>
+</div>
+
+      <div class="col-lg-6 text-center mt-5 mt-lg-0">
+        <img src="dowloaded3.png" alt="Umar Farooq" class="img-fluid hero-img" id="hero-img">
+      </div>
+    </div>
+  </div>
+
+</section>
+</section>
+
+
+<!-- second section  -->
+ <!-- Stats Section -->
+<section class="stats-section py-5">
+  <div class="container text-white">
+    <div class="row text-center">
+      <div class="col-6 col-lg-3 mb-4">
+        <i class="fas fa-layer-group fa-3x mb-2 text-gradient"></i>
+        <h2 class="counter" data-target="60">0</h2>
+        <p>Projects</p>
+      </div>
+      <div class="col-6 col-lg-3 mb-4">
+        <i class="fas fa-users fa-3x mb-2 text-gradient"></i>
+        <h2 class="counter" data-target="10">0</h2>
+        <p>Happy Clients</p>
+      </div>
+      <div class="col-6 col-lg-3 mb-4">
+        <i class="fas fa-award fa-3x mb-2 text-gradient"></i>
+        <h2 class="counter" data-target="2">0</h2>
+        <p>Years Experience</p>
+      </div>
+      <div class="col-6 col-lg-3 mb-4">
+        <i class="fas fa-pencil-ruler fa-3x mb-2 text-gradient"></i>
+        <h2 class="counter" data-target="5">0</h2>
+        <p>Developed Designs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Me Section -->
+<section class="about-section py-5">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <img src="Umar Farooq.jpg" alt="Umar Farooq" class="img-fluid rounded-4">
+      </div>
+      <div class="col-lg-7">
+        <p class="text-gradient mb-1">MY INTRO</p>
+        <h2 class="display-5 mb-3">ABOUT ME</h2>
+        <p class="lead">Hi, I’m Umar Farooq — a passionate web developer and designer. I love creating modern, responsive, and interactive websites. Learning new technologies and coding clean, scalable projects is my thing.</p>
+        <p class="lead">Beyond code, I'm a tech enthusiast with a growing interest in networking, IoT, and system security.</p>
+
+        <div class="mt-4">
+          <p><strong>Name:</strong> Umar Farooq</p>
+          <p><strong>Date of Birth:</strong> 28-April-2008</p>
+          <p><strong>Address:</strong> Peshawar, Pakistan</p>
+          <p><strong>Zip Code:</strong> 25000</p>
+          <p><strong>Email:</strong> umarfarooqweb1@gmail.com</p>
+          <p><strong>Phone:</strong> 0346-6612585</p>
+          <p><strong>Hobbies:</strong> 
+  <i class="fas fa-futbol hobby-icon"></i> Football,
+  <i class="fas fa-dumbbell hobby-icon"></i> Gym,
+  <i class="fas fa-plane hobby-icon"></i> Traveling,
+  <i class="fas fa-code hobby-icon"></i> Coding
+</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS
+    -->
+  <H2 id="skill-khan">MY SKILLS</H2>
+  <div class="row g-4">
+  <!-- HTML Card -->
+  <div class="col-6 col-lg-4">
+    <div class="skill-card p-4">
+      <h4>HTML</h4>
+      <i class="fab fa-html5 fa-3x mb-3 skill-icon"></i>
+      <div class="circle-wrap">
+        <div class="circle" style="--percentage:90;">
+          <div class="inside-circle">90%</div>
+        </div>
+      </div>
+      <p>Expert in HTML markup.</p>
+    </div>
+  </div>
+
+  <!-- CSS Card -->
+  <div class="col-6 col-lg-4">
+    <div class="skill-card p-4">
+      <h4>CSS</h4>
+      <i class="fab fa-css3-alt fa-3x mb-3 skill-icon"></i>
+      <div class="circle-wrap">
+        <div class="circle" style="--percentage:85;">
+          <div class="inside-circle">85%</div>
+        </div>
+      </div>
+      <p>Modern CSS3 and styling.</p>
+    </div>
+  </div>
+
+  <!-- JavaScript Card -->
+  <div class="col-6 col-lg-4">
+    <div class="skill-card p-4">
+      <h4>JavaScript</h4>
+      <i class="fab fa-js fa-3x mb-3 skill-icon"></i>
+      <div class="circle-wrap">
+        <div class="circle" style="--percentage:75;">
+          <div class="inside-circle">75%</div>
+        </div>
+      </div>
+      <p>Interactive web apps.</p>
+    </div>
+  </div>
+
+  <!-- PHP Card -->
+  <div class="col-6 col-lg-4">
+    <div class="skill-card p-4">
+      <h4>PHP</h4>
+      <i class="fab fa-php fa-3x mb-3 skill-icon"></i>
+      <div class="circle-wrap">
+        <div class="circle" style="--percentage:70;">
+          <div class="inside-circle">70%</div>
+        </div>
+      </div>
+      <p>Backend scripting.</p>
+    </div>
+  </div>
+
+  <!-- MySQL Card -->
+  <div class="col-6 col-lg-4">
+    <div class="skill-card p-4">
+      <h4>MySQL</h4>
+      <i class="fas fa-database fa-3x mb-3 skill-icon"></i>
+      <div class="circle-wrap">
+        <div class="circle" style="--percentage:80;">
+          <div class="inside-circle">80%</div>
+        </div>
+      </div>
+      <p>Database management.</p>
+    </div>
+  </div>
+
+  <!-- React JS Card -->
+  <div class="col-6 col-lg-4">
+    <div class="skill-card p-4">
+      <h4>React JS</h4>
+      <i class="fab fa-react fa-3x mb-3 skill-icon"></i>
+      <div class="circle-wrap">
+        <div class="circle" style="--percentage:60;">
+          <div class="inside-circle">60%</div>
+        </div>
+      </div>
+      <p>Modern frontend apps.</p>
+    </div>
+  </div>
+
+  <!-- WordPress Card -->
+  <div class="col-6 col-lg-4">
+    <div class="skill-card p-4">
+      <h4>WordPress</h4>
+      <i class="fab fa-wordpress fa-3x mb-3 skill-icon"></i>
+      <div class="circle-wrap">
+        <div class="circle" style="--percentage:85;">
+          <div class="inside-circle">85%</div>
+        </div>
+      </div>
+      <p>Dynamic websites.</p>
+    </div>
+  </div>
+</div>
+<!-- Services Section -->
+<section class="services-section py-5">
+  <div class="container text-white text-center">
+    <p class="text-gradient mb-1">I AM GREAT</p>
+    <h2 class="section-title">WE DO AWESOME SERVICES FOR OUR CLIENTS</h2>
+    <p class="mb-5">We build modern, responsive, and fully functional digital experiences tailored to your business goals.</p>
+
+    <div class="row g-4">
+      <!-- Service Card -->
+      <div class="col-6 col-lg-4">
+        <div class="service-card p-4">
+          <i class="fas fa-laptop-code fa-3x mb-3 service-icon"></i>
+          <h5>Web Application</h5>
+          <p>Custom interactive web apps for your business.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-4">
+        <div class="service-card p-4">
+          <i class="fas fa-code fa-3x mb-3 service-icon"></i>
+          <h5>Web Development</h5>
+          <p>Full-stack websites built for speed & scale.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-4">
+        <div class="service-card p-4">
+          <i class="fas fa-image fa-3x mb-3 service-icon"></i>
+          <h5>Banner Design</h5>
+          <p>Creative, modern graphic banners for brands.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-4">
+        <div class="service-card p-4">
+          <i class="fas fa-pencil-ruler fa-3x mb-3 service-icon"></i>
+          <h5>Web Design</h5>
+          <p>Clean, user-friendly, and trendy website UI/UX.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-4">
+        <div class="service-card p-4">
+          <i class="fas fa-server fa-3x mb-3 service-icon"></i>
+          <h5>Backend Development</h5>
+          <p>Powerful APIs and database systems for your app.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-4">
+        <div class="service-card p-4">
+          <i class="fas fa-database fa-3x mb-3 service-icon"></i>
+          <h5>Database & API</h5>
+          <p>Secure database & API integration services.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+</section>
+<!-- Projects Section -->
+<section class="projects-section py-5">
+  <div class="container text-white text-center">
+    <p class="text-gradient mb-1">OUR PROJECTS</p>
+    <h2 class="section-title">SOME RECENT WORKS I'VE DONE</h2>
+    <p class="mb-5">A showcase of recent web, backend, and creative design projects for clients worldwide.</p>
+
+    <div class="row g-4">
+      <!-- Project Card 1 -->
+      <div class="col-6 col-lg-3">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <i class="fas fa-globe fa-3x mb-3 project-icon"></i>
+              <h5>Web Portfolio</h5>
+            </div>
+            <div class="flip-card-back">
+              <h5>Web Portfolio</h5>
+              <p>Personal portfolio project showcasing skills and work.</p>
+              <a href="#" class="btn btn-primary btn-sm">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="col-6 col-lg-3">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <i class="fas fa-shopping-cart fa-3x mb-3 project-icon"></i>
+              <h5>E-Commerce</h5>
+            </div>
+            <div class="flip-card-back">
+              <h5>E-Commerce</h5>
+              <p>Online store built with PHP and MySQL backend.</p>
+              <a href="#" class="btn btn-primary btn-sm">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="col-6 col-lg-3">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <i class="fas fa-image fa-3x mb-3 project-icon"></i>
+              <h5>Banner Design</h5>
+            </div>
+            <div class="flip-card-back">
+              <h5>Banner Design</h5>
+              <p>Custom graphic banner design for clients and brands.</p>
+              <a href="#" class="btn btn-primary btn-sm">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 4 -->
+      <div class="col-6 col-lg-3">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <i class="fas fa-server fa-3x mb-3 project-icon"></i>
+              <h5>Backend APIs</h5>
+            </div>
+            <div class="flip-card-back">
+              <h5>Backend APIs</h5>
+              <p>Secure API services and backend integration systems.</p>
+              <a href="#" class="btn btn-primary btn-sm">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- What Clients Say Section -->
+<section class="testimonials-section py-5">
+  <div class="container text-white text-center">
+    <p class="text-gradient mb-1">WHAT CLIENTS SAY</p>
+    <h2 class="section-title">Testimonials</h2>
+    <p class="mb-5">Our clients love the work we deliver — here’s what a few of them have shared about their experience with us.</p>
+
+    <div class="slider-container">
+      <div class="slider">
+        <div class="testimonial-card">
+          <p>"Outstanding service! Delivered everything as promised with extra value."</p>
+          <h5>- John Doe</h5>
+        </div>
+        <div class="testimonial-card">
+          <p>"Highly recommended for web development and backend solutions."</p>
+          <h5>- Sarah Malik</h5>
+        </div>
+        <div class="testimonial-card">
+          <p>"Excellent communication and top-notch design work."</p>
+          <h5>- Daniel Smith</h5>
+        </div>
+        <div class="testimonial-card">
+          <p>"Always delivers professional projects on time. Impressive!"</p>
+          <h5>- Ayesha Noor</h5>
+        </div>
+        <!-- You can add more testimonials here -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact Section -->
+<section class="contact-section py-5">
+  <div class="container text-white">
+    <div class="text-center mb-5">
+      <p class="text-gradient mb-1">HAVE A PROJECT?</p>
+      <h2 class="section-title">Let’s Discuss Your Idea</h2>
+      <p>Fill out the form and let's start building something awesome together!</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Contact Form -->
+      <div class="col-lg-7">
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Subject" required>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="col-lg-5">
+        <div class="contact-info-card">
+          <i class="fas fa-envelope fa-2x mb-2"></i>
+          <h5>Email</h5>
+          <p>umarfarooqweb1@gmail.com</p>
+        </div>
+
+        <div class="contact-info-card">
+          <i class="fas fa-phone fa-2x mb-2"></i>
+          <h5>Phone</h5>
+          <p>0346-6612-585</p>
+        </div>
+
+        <div class="contact-info-card">
+          <i class="fas fa-map-marker-alt fa-2x mb-2"></i>
+          <h5>Address</h5>
+          <p>Peshawar, Pakistan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+   <!-- Footer Section -->
+<footer class="footer-section pt-5 pb-4">
+  <div class="container text-white">
+    <div class="row g-4">
+      <!-- Logo & About -->
+      <div class="col-lg-3 col-md-6">
+        <h4 class="text-gradient">Umar Farooq</h4>
+        <p>Your partner for modern web, apps, backend systems and creative brand solutions.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-3 col-md-6">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-3 col-md-6">
+        <h5>Contact</h5>
+        <ul class="footer-contact">
+          <li><i class="fas fa-envelope"></i> umarfarooqweb1@gmail.com</li>
+          <li><i class="fas fa-phone"></i> 0346-6612-585</li>
+          <li><i class="fas fa-map-marker-alt"></i> Peshawar, Pakistan</li>
+        </ul>
+      </div>
+
+      <!-- Services & SEO -->
+      <div class="col-lg-3 col-md-6">
+        <h5>More Services</h5>
+        <ul class="footer-links">
+          <li><a href="#">SEO Optimization</a></li>
+          <li><a href="#">CEO Consulting</a></li>
+          <li><a href="#">Digital Marketing</a></li>
+          <li><a href="#">Creative Design</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="footer-social text-center mt-4">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+    <p class="text-center mt-3 mb-0 text-secondary">© 2025 Umar Farooq | All rights reserved.</p>
+  </div>
+</footer>
+
+    <script>
+function downloadCV() {
+  const link = document.createElement('a');
+  link.href = 'Umar_Farooq_CV.pdf';
+  link.download = 'Umar_Farooq_CV.pdf';
+  link.click();
+}
+
+// Constantly changing hero image
+const images = ['downloaded2.png', 'dowloaded3.png"', 'download.png'];
+let currentIndex = 0;
+
+function changeHeroImage() {
+  const imgElement = document.getElementById('hero-img');
+  currentIndex = (currentIndex + 1) % images.length;
+  imgElement.src = images[currentIndex];
+}
+
+setInterval(changeHeroImage, 3000);
+
+// Constantly changing text
+const textElement = document.querySelector(".changing-text");
+const phrases = [
+  "WEB DEVELOPER",
+  "WORDPRESS EXPERT",
+  "GIT USER",
+  "GITHUB LOVER",
+  "NETWORKING LEARNER",
+  "IOT DEVELOPER",
+  "FULL STACK LEARNER"
+];
+let textIndex = 0;
+
+function changeText() {
+  textElement.innerText = phrases[textIndex];
+  textIndex = (textIndex + 1) % phrases.length;
+}
+
+setInterval(changeText, 2500);
+
+
+//second secgtion
+// Counter animation
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+  counter.innerText = '0';
+
+  const updateCounter = () => {
+    const target = +counter.getAttribute('data-target');
+    const current = +counter.innerText;
+    const increment = target / 50;
+
+    if (current < target) {
+      counter.innerText = Math.ceil(current + increment);
+      setTimeout(updateCounter, 30);
+    } else {
+      counter.innerText = target + "+";
+    }
+  };
+
+  updateCounter();
+});
+
+
+    </script>
 </body>
 </html>
