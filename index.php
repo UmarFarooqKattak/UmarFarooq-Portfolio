@@ -18,6 +18,8 @@
 <body>
     <?php
     echo "THIS IS THE FILE OF PHP ";
+    $name = "Umar Farooq";
+    echo "Hello Mr King Of Hacking Techniques ".$name;
     ?>
 </body>
 </html>
