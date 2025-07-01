@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cool website">
+  <meta name="author" content="Umar">
+  <meta name="keywords" content="portfolio, web developer, Umar Farooq">
+
     <title>About Me ||  Umar Farooq </title>
     <link rel="icon" href="Umar Farooq.jpg">
     <style>
